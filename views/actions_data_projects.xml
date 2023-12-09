@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+
+
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="icq24_data_projects_list">
+            <field name="name">icq24_data_projects list</field>
+            <field name="model">icq24.data.projects</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="d_status"/>
+                    <field name="d_total_value"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+        <record model="ir.ui.view" id="icq24_data_projects_form">
+            <field name="name">icq24_data_projects form</field>
+            <field name="model">icq24.data.projects</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button type="object" name="print_report" string="IMPRIMIR REPORTE"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="d_status"/>
+                            <field name="d_total_value" readonly='1' force_save="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="actions_icq24_data_projects">
+            <field name="name">Data Proyectos</field>
+            <field name="res_model">icq24.data.projects</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

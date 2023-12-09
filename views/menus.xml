@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="ICQ24_APP" id="icq24_prueba.menu_root"
+                  web_icon="icq24_prueba,static/src/img/icq24.jpg"/>
+
+        <!-- menu categories -->
+        <menuitem name="General" id="icq24_prueba.users" parent="icq24_prueba.menu_root"/>
+        <menuitem name="Ingeniería y desarrollo" id="icq24_prueba.engineering" parent="icq24_prueba.menu_root"/>
+        <!--
+            <menuitem name="Menu 2" id="icq24_prueba.menu_2" parent="icq24_prueba.menu_root"/>
+        -->
+
+
+        <!-- actions General-->
+        <menuitem name="Departamentos" id="icq24_prueba.icq24_departaments" parent="icq24_prueba.users"
+                      action="actions_icq24_departaments" sequence="1"/>
+        <menuitem name="Sedes" id="icq24_prueba.icq24_branch" parent="icq24_prueba.users"
+                      action="actions_icq24_branch" sequence="2"/>
+        <menuitem name="Empleados" id="icq24_prueba.icq24_user" parent="icq24_prueba.users"
+                      action="actions_icq24_prueba" sequence="3"/>
+
+
+
+        <!-- actions Ingeniería y desarrollo-->
+        <menuitem name="Proyectos" id="icq24_prueba.icq24_engineering_proyects" parent="icq24_prueba.engineering"
+                      action="actions_icq24_engineering_proyects" sequence="1"/>
+        <menuitem name="Data de proyectos" id="icq24_prueba.icq24_data_projects" parent="icq24_prueba.engineering"
+                      action="actions_icq24_data_projects" sequence="2"/>
+
+        <!--
+
+            <menuitem name="Server to list" id="icq24_prueba" parent="icq24_prueba.menu_2"
+                      action="icq24_prueba.action_server"/>
+        -->
+    </data>
+</odoo>

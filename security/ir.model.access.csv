@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_icq24_prueba,icq24.prueba,model_icq24_prueba,,1,1,1,1
+access_icq24_departaments,icq24.departaments,model_icq24_departaments,,1,1,1,1
+access_icq24_branch,icq24.branch,model_icq24_branch,,1,1,1,1
+access_icq24_engineering_proyects,icq24.engineering.proyects,model_icq24_engineering_proyects,,1,1,1,1
+access_icq24_engineering_details,icq24.engineering.details,model_icq24_engineering_details,,1,1,1,1
+access_icq24_data_projects,icq24.data.projects,model_icq24_data_projects,,1,1,1,1

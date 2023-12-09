@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+
+
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="icq24_departaments_list">
+            <field name="name">icq24_departaments list</field>
+            <field name="model">icq24.departaments</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="d_name"/>
+                    <field name="d_description"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+        <record model="ir.ui.view" id="icq24_departaments_form">
+            <field name="name">icq24_departaments form</field>
+            <field name="model">icq24.departaments</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="d_name"/>
+                            <field name="d_description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="actions_icq24_departaments">
+            <field name="name">Departamentos</field>
+            <field name="res_model">icq24.departaments</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

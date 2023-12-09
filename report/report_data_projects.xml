@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="data_projects_template">
+            <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/icq24_prueba/static/src/css/report_data_projects.css"/>
+                <t t-foreach="docs" t-as="o">
+
+                    <div class="container" style="padding:0px;margin:0px;border:1px solid black;">
+
+                       <img t-att-src="'https://www.icq24.com/web/image/website/5/logo/ICQ24%20Oficial%20WebSite?unique=9dd8d53'" style="width: 10%;"/> Reporte de datos ICQ24
+
+                        <div class="row_webkit" style="border-top: 1px solid black">
+                            <div class="col_webkit_8" style="font-size:15px;">
+                                Luego del estudio se han filtrado los proyectos en estado de <span t-field="o.d_status"/> y tenemos que total de beneficios es:
+
+                            </div>
+                            <div class="col_webkit_4" style="border-left:1px solid black; background-color:#d0fdd7">
+                                <h2 class="student_letters">Total:
+                                    <span t-field="o.d_total_value" style="font-size:20px;"/>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </t>
+
+            </t>
+        </template>
+
+        <record id="icq24_prueba.data_projects" model="ir.actions.report">
+            <field name="name">Imprimir PDF</field>
+            <field name="model">icq24.data.projects</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">icq24_prueba.data_projects_template</field>
+            <field name="report_file">icq24_prueba.data_projects_template</field>
+            <field name="binding_model_id" ref="model_icq24_data_projects"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="icq24_prueba.data_projects_paperformat" model="report.paperformat">
+            <field name="name">Data de proyectos</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="icq24_prueba.data_projects" model="ir.actions.report">
+            <field name="paperformat_id" ref="icq24_prueba.data_projects_paperformat"/>
+        </record>
+
+    </data>
+</odoo>

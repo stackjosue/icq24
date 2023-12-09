@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+
+
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="icq24_prueba_list">
+            <field name="name">icq24_prueba list</field>
+            <field name="model">icq24.prueba</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="b_branch_id"/>
+                    <field name="name"/>
+                    <field name="b_departaments_id"/>
+                    <field name="age"/>
+                    <field name="identification"/>
+                    <field name="position"/>
+                    <field name="job_modality"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+        <record model="ir.ui.view" id="icq24_prueba_form">
+            <field name="name">icq24_prueba form</field>
+            <field name="model">icq24.prueba</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="b_branch_id"/>
+                            <field name="name"/>
+                            <field name="b_departaments_id"/>
+                            <field name="age"/>
+                            <field name="identification"/>
+                            <field name="position"/>
+                            <field name="job_modality"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="actions_icq24_prueba">
+            <field name="name">Usuarios</field>
+            <field name="res_model">icq24.prueba</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

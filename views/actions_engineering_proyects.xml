@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+
+
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="icq24_engineering_proyects_list">
+            <field name="name">icq24_engineering_proyects list</field>
+            <field name="model">icq24.engineering.proyects</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="b_branch_id"/>
+                    <field name="e_name"/>
+                    <field name="e_project_leader"/>
+                    <field name="e_basic_description"/>
+                    <field name="e_value"/>
+                    <field name="e_status" widget="badge" decoration-warning="e_status == 'PLANIFICACION'"
+                           decoration-info="e_status == 'EJECUCION'" decoration-success="e_status == 'ENTREGADO'"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+        <record model="ir.ui.view" id="icq24_engineering_proyects_form">
+            <field name="name">icq24_engineering_proyects form</field>
+            <field name="model">icq24.engineering.proyects</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button type="object" name="run_planning"
+                                string="PASAR A EJECUCIÓN"
+                                confirm="¿Está seguro que desea terminar la etapa de Planificación?"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|',('e_status', '!=', 'PLANIFICACION'),('e_project_leader', '=', 'False')]}"/>
+
+                        <button type="object" name="run_execution"
+                                string="FINALIZAR PROYECTO"
+                                confirm="¿Está seguro que desea terminar la etapa de Ejecución?"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('e_status', '!=', 'EJECUCION')]}"/>
+
+                        <field name="e_status" widget="statusbar" nolabel="1" readonly="1" force_save="1"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <field name="b_branch_id" attrs="{'readonly': [('e_status', '!=', 'PLANIFICACION')]}"/>
+                            <field name="e_name" attrs="{'readonly': [('e_status', '!=', 'PLANIFICACION')]}"/>
+                            <field name="e_project_leader" attrs="{'readonly': [('e_status', '=', 'ENTREGADO')]}"/>
+                            <field name="e_basic_description" attrs="{'readonly': [('e_status', '!=', 'PLANIFICACION')]}"/>
+                            <field name="e_description" attrs="{'readonly': [('e_status', '!=', 'PLANIFICACION')]}"/>
+                            <field name="e_value" attrs="{'readonly': [('e_status', '!=', 'PLANIFICACION')]}"/>
+                        </group>
+                        <group>
+                            <div style="background-color:#d0fdd7; margin:10px; font-size:15px;" attrs="{'invisible': [('e_status', '!=', 'ENTREGADO')]}">Proyecto entregado con éxito</div>
+                        </group>
+
+
+
+                        <notebook>
+                            <page string="Empleados asignados al proyecto">
+                                <field name="e_engineering_details_ids"
+                                       widget="section_and_note_one2many"
+                                       mode="tree"
+                                       context="{}">
+                                    <tree editable="bottom" string="Nombre">
+                                        <control>
+                                            <create name="add_line_control" string="Agregar nuevo empleado"/>
+                                        </control>
+                                        <field name="e_employe_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="actions_icq24_engineering_proyects">
+            <field name="name">Proyectos</field>
+            <field name="res_model">icq24.engineering.proyects</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

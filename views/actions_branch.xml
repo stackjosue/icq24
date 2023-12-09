@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+
+
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="icq24_branch_list">
+            <field name="name">icq24_branch list</field>
+            <field name="model">icq24.branch</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="b_name"/>
+                    <field name="b_address"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+        <record model="ir.ui.view" id="icq24_branch_form">
+            <field name="name">icq24_branch form</field>
+            <field name="model">icq24.branch</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="b_name"/>
+                            <field name="b_address"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="actions_icq24_branch">
+            <field name="name">Sedes</field>
+            <field name="res_model">icq24.branch</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>
